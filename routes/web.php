@@ -41,3 +41,5 @@ Route::get('/hola/{name}', function($name) {
 
 });
 
+Route::view('/portfolio', 'portfolio');
+
