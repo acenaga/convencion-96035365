@@ -15,13 +15,13 @@
                                     <span>Hello I'm</span>
                                 </div>
 
-                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Alex Johnson</h2>
-                                <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">Product Designer</h4>
+                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->name }}</h2>
+                                <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">{{ $user->title_job }}</h4>
 
                                 <ul>
-                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i class="fa fa-envelope"></i><a href="mailto:">getemail@email.com</a></li>
-                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:">+12 986 987 7867</a></li>
-                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s"><i class="fa fa-map-marker"></i><address>37, Pollsatnd, New York, United State</address></li>
+                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s"><i class="fa fa-envelope"></i><a href="mailto:">{{ $user->email }}</a></li>
+                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s"><i class="fa fa-phone"></i><a href="callto:{{ $user->tel }}">{{ $user->tel }}</a></li>
+                                    <li class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s"><i class="fa fa-map-marker"></i><address>{{ $user->address }}</address></li>
                                 </ul>
 
                                 <ul class="social-icon wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
@@ -35,7 +35,7 @@
                         <div class="col-sm-6">
                             <div class="hero-img wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
                                 <div class="img-border">
-                                    <img src="assets/images/hero.png" alt=""  class="img-fluid">
+                                    <img src="{{ asset('assets/images/hero.png') }}" alt=""  class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                 <div class="row section-separator">
                     <div class="col-sm-12 col-md-6">
                         <div class="mh-about-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                            <img src="assets/images/ab-img.png" alt="" class="img-fluid">
+                            <img src="{{ asset('assets/images/ab-img.png') }}" alt="" class="img-fluid">
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
@@ -65,13 +65,9 @@
                             and customization. Also I am good at</p>
                             <div class="mh-about-tag wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                 <ul>
-                                    <li><span>php</span></li>
-                                    <li><span>html</span></li>
-                                    <li><span>css</span></li>
-                                    <li><span>php</span></li>
-                                    <li><span>wordpress</span></li>
-                                    <li><span>React</span></li>
-                                    <li><span>Javascript</span></li>
+                                    @foreach ($user->skill as $skill)
+                                        <li><span>{{ $skill->name }}</span></li>
+                                    @endforeach
                                 </ul>
                             </div>
                             <a href="#" class="btn btn-fill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.4s">Downlaod CV <i class="fa fa-download"></i></a>
@@ -147,8 +143,8 @@
                                 <div class="col-sm-12 mh-featured-item">
                                     <div class="row">
                                         <div class="col-sm-7">
-                                            <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                                <img src="assets/images/p-2.png" alt="" class="img-fluid">
+                                            <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">                                                
+                                                <img src="{{ asset('assets/images/p-2.png') }}" alt="" class="img-fluid">
                                             </div>
                                         </div>
                                         <div class="col-sm-5">
@@ -184,7 +180,7 @@
                                     <div class="row">
                                         <div class="col-sm-7">
                                             <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                                <img src="assets/images/p-2.png" alt="" class="img-fluid">
+                                                <img src="{{ asset('assets/images/p-2.png') }}" alt="" class="img-fluid">
                                             </div>
                                         </div>
                                         <div class="col-sm-5">
@@ -220,7 +216,7 @@
                                     <div class="row">
                                         <div class="col-sm-7">
                                             <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                                <img src="assets/images/p-2.png" alt="" class="img-fluid">
+                                                <img src="{{ asset('assets/images/p-2.png') }}" alt="" class="img-fluid">
                                             </div>
                                         </div>
                                         <div class="col-sm-5">
@@ -275,73 +271,19 @@
                                 <div class="mh-professional-skill wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                     <h3>Technical Skills</h3>
                                     <div class="each-skills">
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">Javascript</div>
-                                                    <div class="percentagem-num">86%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 86%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">Java</div>
-                                                    <div class="percentagem-num">46%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 46%;"></div>
+                                        @foreach ($user->skill as $skill)
+                                            <div class="candidatos">
+                                                <div class="parcial">
+                                                    <div class="info">
+                                                        <div class="nome">{{ $skill->name}}</div>
+                                                        <div class="percentagem-num">{{ $skill->percent }}%</div>
+                                                    </div>
+                                                    <div class="progressBar">
+                                                        <div class="percentagem" style="width: {{ $skill->percent }}%;"></div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">Python</div>
-                                                    <div class="percentagem-num">38%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 38%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">PHP</div>
-                                                    <div class="percentagem-num">17%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 17%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">Python</div>
-                                                    <div class="percentagem-num">38%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 38%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="candidatos">
-                                            <div class="parcial">
-                                                <div class="info">
-                                                    <div class="nome">PHP</div>
-                                                    <div class="percentagem-num">17%</div>
-                                                </div>
-                                                <div class="progressBar">
-                                                    <div class="percentagem" style="width: 17%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
@@ -387,27 +329,15 @@
                             <div class="mh-education">
                                 <h3 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">Education</h3>
                                 <div class="mh-education-deatils">
+                                    @foreach ($user->education as $education)
+                                        <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                                            <h4>{{ $education->degree }} <a href="#">{{ $education->school_name }}</a></h4>
+                                            <div class="mh-eduyear">{{ $education->start_date }} - {{ $education->finish_date }}</div>
+                                            <p>{{ $education->description }}</p>
+                                        </div>
+                                        
+                                    @endforeach
                                     <!-- Education Institutes-->
-                                    <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                                        page when looking at its layout. The point of using  Lorem Ipsum </p>
-                                    </div>
-                                    <!-- Education Institutes-->
-                                    <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                                        page when looking at its layout. The point of using  Lorem Ipsum </p>
-                                    </div>
-                                    <!-- Education Institutes-->
-                                    <div class="mh-education-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
-                                        <h4>Art & Multimedia From <a href="#">Oxford University</a></h4>
-                                        <div class="mh-eduyear">2005-2008</div>
-                                        <p>It is a long established fact that a reader will be distracted by the readable content of a
-                                        page when looking at its layout. The point of using L orem Ipsum </p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -477,8 +407,8 @@
                         <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="project-gallery" data-wow-duration="0.8s" data-wow-delay="0.5s">
                             <div class="portfolioContainer row">
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
-                                    <figure>
-                                        <img src="assets/images/portfolio/g1.jpg" alt="img04">
+                                    <figure>                                        
+                                        <img src="{{ asset('assets/images/portfolio/g1.jpg') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
@@ -489,89 +419,89 @@
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 ui mockup">
                                     <figure>
-                                        <img src="assets/images/portfolio/g2.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g2.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g2.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g2.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
                                     <figure>
-                                        <img src="assets/images/portfolio/g3.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g3.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g3.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g3.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
                                     <figure>
-                                        <img src="assets/images/portfolio/g5.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g5.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g5.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g5.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
                                     <figure>
-                                        <img src="assets/images/portfolio/g4.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g4.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g4.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g4.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
                                     <figure>
-                                        <img src="assets/images/portfolio/g6.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g6.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g6.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g6.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
                                     <figure>
-                                        <img src="assets/images/portfolio/g8.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g8.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g8.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g8.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 ui">
                                     <figure>
-                                        <img src="assets/images/portfolio/g9.png" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g9.png') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g9.png" data-fancybox data-src="#mh"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g9.png') }}" data-fancybox data-src="#mh"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 branding">
                                     <figure>
-                                        <img src="assets/images/portfolio/g7.jpg" alt="img04">
+                                        <img src="{{ asset('assets/images/portfolio/g7.jpg') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>
                                             <h5 class="title">Creative Design</h5>
                                             <span class="sub-title">Photograpy</span>
-                                            <a href="assets/images/portfolio/g7.jpg" data-fancybox="gallery"></a>
+                                            <a href="{{ asset('assets/images/portfolio/g7.jpg') }}" data-fancybox="gallery"></a>
                                         </figcaption>
                                     </figure>
                                 </div>
@@ -716,7 +646,7 @@
                         </div>
                         <div class="col-sm-12 col-md-4">
                              <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                                <img src="assets/images/b-3.png" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/images/b-3.png') }}" alt="" class="img-fluid">
                                 <div class="blog-inner">
                                     <h2><a href="blog-single.html">A life without the daily traffic jams</a></h2>
                                     <div class="mh-blog-post-info">
@@ -732,7 +662,7 @@
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.5s">
-                                <img src="assets/images/b-2.png" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/images/b-2.png') }}" alt="" class="img-fluid">
                                 <div class="blog-inner">
                                     <h2><a href="blog-single.html">Proportion are what’s really needed</a></h2>
                                     <div class="mh-blog-post-info">
@@ -748,7 +678,7 @@
                         </div>
                         <div class="col-sm-12 col-md-4">
                             <div class="mh-blog-item dark-bg wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.7s">
-                                <img src="assets/images/b-1.png" alt="" class="img-fluid">
+                                <img src="{{ asset('assets/images/b-1.png') }}" alt="" class="img-fluid">
                                 <div class="blog-inner">
                                     <h2><a href="blog-single.html">Mounts of paper work to remember the way</a></h2>
                                     <div class="mh-blog-post-info">
@@ -782,7 +712,7 @@
                         <div class="col-sm-12 wow fadeInUp" id="mh-client-review" data-wow-duration="0.8s" data-wow-delay="0.3s">
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>
@@ -792,38 +722,7 @@
                             </div>
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
-                                </div>
-                            </div>
-
-                            <div class="each-client-item">
-                                <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
-                                </div>
-                            </div>
-                            <div class="each-client-item">
-                                <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
-                                    <p>Absolute wonderful ! I am completely
-                                    blown away.The very best.I was amazed
-                                    at the quality</p>
-                                    <h4>John Mike</h4>
-                                    <span>CEO, Author.Inc</span>
-                                </div>
-                            </div>
-                            <div class="each-client-item">
-                                <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>
@@ -834,7 +733,38 @@
 
                             <div class="each-client-item">
                                 <div class="mh-client-item dark-bg black-shadow-1">
-                                    <img src="assets/images/c-1.png" alt="" class="img-fluid">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
+                                    <p>Absolute wonderful ! I am completely
+                                    blown away.The very best.I was amazed
+                                    at the quality</p>
+                                    <h4>John Mike</h4>
+                                    <span>CEO, Author.Inc</span>
+                                </div>
+                            </div>
+                            <div class="each-client-item">
+                                <div class="mh-client-item dark-bg black-shadow-1">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
+                                    <p>Absolute wonderful ! I am completely
+                                    blown away.The very best.I was amazed
+                                    at the quality</p>
+                                    <h4>John Mike</h4>
+                                    <span>CEO, Author.Inc</span>
+                                </div>
+                            </div>
+                            <div class="each-client-item">
+                                <div class="mh-client-item dark-bg black-shadow-1">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
+                                    <p>Absolute wonderful ! I am completely
+                                    blown away.The very best.I was amazed
+                                    at the quality</p>
+                                    <h4>John Mike</h4>
+                                    <span>CEO, Author.Inc</span>
+                                </div>
+                            </div>
+
+                            <div class="each-client-item">
+                                <div class="mh-client-item dark-bg black-shadow-1">
+                                    <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="img-fluid">
                                     <p>Absolute wonderful ! I am completely
                                     blown away.The very best.I was amazed
                                     at the quality</p>

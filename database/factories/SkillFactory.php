@@ -24,6 +24,7 @@ class SkillFactory extends Factory
         return [
             'name' => $this->faker->word,
             'percent' => rand(1,99),
+            'user_id'=> rand(1,5)
         ];
     }
 }

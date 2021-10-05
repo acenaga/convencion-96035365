@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Skill;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -46,12 +48,33 @@ Route::get('/hola/{name}', function($name) {
 
 });
 
+Route::get('portfolio/{slug}', function($slug){
+
+    $user = User::with('skill')->with('education')->where('slug', $slug)->first();
+    
+    if($user) {
+        return view('portfolio')->with('user', $user);
+    }else{
+        return view('welcome');
+    }
+    //dd($user);
+
+
+    
+    // return view('portfolio', compact('user', 'skill'));
+
+});
+
 Route::get('portfolio', function(){
 
-    $users = User::get();
+    $user = User::with('skill')->with('education')->latest()->get();
+    //$skill = Skill::latest()->get();
+
+    //dd($user);
 
 
-    return view('portfolio')->with('users', $users);
+    return view('portfolio')->with('user', $user[0]);
+    // return view('portfolio', compact('user', 'skill'));
 
 });
 
