@@ -4,6 +4,7 @@ use App\Models\Skill;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -77,6 +78,10 @@ Route::get('portfolio', function(){
     // return view('portfolio', compact('user', 'skill'));
 
 });
+
+Route::resource('user', UserController::class)->except([
+    'show'
+]);
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

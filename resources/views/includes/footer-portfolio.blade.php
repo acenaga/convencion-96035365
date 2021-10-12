@@ -132,7 +132,7 @@
     <!-- Map api -->
     <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyCRP2E3BhaVKYs7BvNytBNumU0MBmjhhxc"></script>
     <!-- isotope js-->
-    <script src="{{ asset('assets/plugins/js/isotope.pkgd.js') }}s"></script>
+    <script src="{{ asset('assets/plugins/js/isotope.pkgd.js') }}"></script>
     <script src="{{ asset('assets/plugins/js/packery-mode.pkgd.js') }}"></script>
     <!-- Custom Scripts-->
     <script src="{{ asset('assets/js/map-init.js') }}"></script>
@@ -144,9 +144,9 @@
       JavaScript/jQuery according to http://browserdiet.com/en/ for better performance
     **************** -->
     <!-- STYLE SWITCH STYLESHEET ONLY FOR DEMO -->
-    <link rel="stylesheet" href="demo/demo.css">
-    <script type="text/javascript" src="demo/styleswitcher.js"></script>
-    <script type="text/javascript" src="demo/demo.js"></script>
+    {{-- <link rel="stylesheet" href="{{ asset('demo/demo.css') }}">
+    <script type="text/javascript" src="{{ asset('demo/styleswitcher.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('demo/demo.js') }}"></script>
         <div class="demo-style-switch" id="switch-style">
     <a id="toggle-switcher" class="switch-button"><i class="fa fa-snowflake-o fa-spin"></i></a>
     <div class="switched-options">
@@ -216,7 +216,7 @@
         </li>
     </ul>
     </div>
-    </div>
+    </div> --}}
 </body>
 
 </html>
