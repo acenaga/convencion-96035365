@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Models\User;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SkillController;
+
 
 
 /*
@@ -52,7 +54,7 @@ Route::get('/hola/{name}', function($name) {
 Route::get('portfolio/{slug}', function($slug){
 
     $user = User::with('skill')->with('education')->where('slug', $slug)->first();
-    
+
     if($user) {
         return view('portfolio')->with('user', $user);
     }else{
@@ -61,7 +63,6 @@ Route::get('portfolio/{slug}', function($slug){
     //dd($user);
 
 
-    
     // return view('portfolio', compact('user', 'skill'));
 
 });
@@ -83,7 +84,11 @@ Route::resource('user', UserController::class)->except([
     'show'
 ]);
 
+Route::resource('skill', SkillController::class)->except([
+    'show'
+]);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->name('dashboard');
