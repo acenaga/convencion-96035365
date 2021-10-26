@@ -36,7 +36,17 @@ class SkillController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $skill = Skill::create([
+            'name' => $data['name'],
+            'user_id' => intval($data['user_id']),
+            'percent' => 50
+        ]);
+
+        $skill->save();
+
+        return redirect()->to('user/'.$data['user_id'].'/edit')->with('status', 'Habilidad Creada con Exito');
     }
 
     /**
@@ -73,7 +83,7 @@ class SkillController extends Controller
 
         $skill->update($request->all());
 
-        return redirect()->to('user/'.$skill->user_id.'/edit');
+        return redirect()->to('user/'.$skill->user_id.'/edit')->with('status', 'Habilidad Modificada con Exito');
     }
 
     /**
@@ -89,6 +99,6 @@ class SkillController extends Controller
         $skill = Skill::find($skill->id);
         $skill->delete();
 
-        return redirect()->to('user/'.$id.'/edit');
+        return redirect()->to('user/'.$id.'/edit')->with('danger', 'Habilidad Borrada');;
     }
 }
