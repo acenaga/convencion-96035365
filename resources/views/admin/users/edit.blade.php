@@ -1,5 +1,7 @@
 @extends('admin.layouts.admin')
 
+{{-- solo para github --}}
+
 @section('main-content')
 <div class="col-12">
     <div class="row">
