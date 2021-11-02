@@ -75,6 +75,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        if($request->file('file')){
+            $user->image = $request->file('file')->store('users', 'public');
+            $user->save();
+        }
 
         $user->update($request->all());
 

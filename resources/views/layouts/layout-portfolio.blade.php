@@ -35,7 +35,11 @@
                         <div class="col-sm-6">
                             <div class="hero-img wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.6s">
                                 <div class="img-border">
-                                    <img src="{{ asset('assets/images/hero.png') }}" alt=""  class="img-fluid">
+                                    @if ($user->image)
+                                        <img src="{{ $user->get_image }}" alt="{{ $user->name }}"  class="img-fluid">
+                                    @else
+                                        <img src="{{ asset('assets/images/hero.png') }}" alt=""  class="img-fluid">
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -143,7 +147,7 @@
                                 <div class="col-sm-12 mh-featured-item">
                                     <div class="row">
                                         <div class="col-sm-7">
-                                            <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">                                                
+                                            <div class="mh-featured-project-img shadow-2 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">
                                                 <img src="{{ asset('assets/images/p-2.png') }}" alt="" class="img-fluid">
                                             </div>
                                         </div>
@@ -335,7 +339,7 @@
                                             <div class="mh-eduyear">{{ $education->start_date }} - {{ $education->finish_date }}</div>
                                             <p>{{ $education->description }}</p>
                                         </div>
-                                        
+
                                     @endforeach
                                     <!-- Education Institutes-->
                                 </div>
@@ -407,7 +411,7 @@
                         <div class="mh-project-gallery col-sm-12 wow fadeInUp" id="project-gallery" data-wow-duration="0.8s" data-wow-delay="0.5s">
                             <div class="portfolioContainer row">
                                 <div class="grid-item col-md-4 col-sm-6 col-xs-12 user-interface">
-                                    <figure>                                        
+                                    <figure>
                                         <img src="{{ asset('assets/images/portfolio/g1.jpg') }}" alt="img04">
                                         <figcaption class="fig-caption">
                                             <i class="fa fa-search"></i>

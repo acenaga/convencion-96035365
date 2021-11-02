@@ -26,6 +26,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'password',
+        'image',
     ];
 
     /**
@@ -66,5 +67,17 @@ class User extends Authenticatable
     public function education()
     {
         return $this->hasMany(Education::class, 'user_id', 'id');
+    }
+
+    public function getGetImageAttribute($key){
+        if($this->image){
+            return url("storage/$this->image");
+        }
+    }
+
+    public function getUppercaseAttribute($key){
+
+        return strtoupper($this->name);
+
     }
 }

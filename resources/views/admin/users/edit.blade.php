@@ -14,21 +14,27 @@
                 {{ session('danger') }}
             </div>
         @endif
-        <form action="{{ route('user.update', $user) }}"
-        method="POST">
+        <form
+            action="{{ route('user.update', $user) }}"
+            enctype="multipart/form-data"
+            method="POST">
 
-            <div class="form-row">
-                <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
                     <label class="text-gray-700 text-sm font-bold mb-2" >
                         Nombres
                     </label>
                     <input id="name" type="text"  name="name" class="form-control" value="{{ old('name', $user->name) }}">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <label class="text-gray-700 text-sm font-bold mb-2" >
-                        Apellidos
+                        Titulo
                     </label>
-                    <input id="job_title" type="text"  name="job_title" class="form-control" value="{{ old('job_title', $user->job_title) }}">
+                    <input id="title_job" type="text"  name="title_job" class="form-control" value="{{ old('title_job', $user->title_job) }}">
+                </div>
+                <div class="col-md-4">
+                    <img src="http://lorempixel.com/400/200/" class="img-fluid">
+                    <input type="file" name="file">
                 </div>
             </div>
 
