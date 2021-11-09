@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UserRequest;
+
 
 
 class UserController extends Controller
@@ -73,9 +76,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserRequest $request, User $user)
     {
+
+        // UserRequest es un request customizable hecho con artisan
+
+        // Validaciones en el controlador
+        // $request->validate([
+        //     'name'          => 'required | min:5 | max:64',
+        //     'title_job'     => 'required | min:5 | max:64',
+        //     'tel'           => 'required | numeric | min:6',
+        //     'address'       => 'required | min:10 | max:128',
+        //     'file'          => 'image:jpg | dimensions:min_width=100,min_height=200 | size:512',
+        // ]);
+
+
         if($request->file('file')){
+            Storage::disk('public')->delete($user->image);
             $user->image = $request->file('file')->store('users', 'public');
             $user->save();
         }
@@ -94,6 +111,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+
+        if($user->image){
+            Storage::disk('public')->delete($user->image);
+        }
         $user->delete();
 
         return redirect()->to('user');

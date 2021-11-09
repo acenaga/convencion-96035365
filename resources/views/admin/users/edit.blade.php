@@ -25,16 +25,47 @@
                         Nombres
                     </label>
                     <input id="name" type="text"  name="name" class="form-control" value="{{ old('name', $user->name) }}">
+                    @error('name')
+                        <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-4">
                     <label class="text-gray-700 text-sm font-bold mb-2" >
                         Titulo
                     </label>
                     <input id="title_job" type="text"  name="title_job" class="form-control" value="{{ old('title_job', $user->title_job) }}">
+                    @error('title_job')
+                        <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="col-md-4">
-                    <img src="http://lorempixel.com/400/200/" class="img-fluid">
+                    @if ($user->image)
+                        <img class="card-img-top" src="{{ $user->get_image }}" alt="{{ $user->name }}">
+                    @else
+                        <img class="card-img-top" src="http://lorempixel.com/400/200/" alt="Card image cap">
+                    @endif
                     <input type="file" name="file">
+                    @error('file')
+                        <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-4">
+                    <label class="text-gray-700 text-sm font-bold mb-2" >
+                        Telefono
+                    </label>
+                    <input id="tel" type="text"  name="tel" class="form-control" value="{{ old('tel', $user->tel) }}">
+                    @error('tel')
+                        <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="col-md-4">
+                    <label class="text-gray-700 text-sm font-bold mb-2" >
+                        Direccion
+                    </label>
+                    <input id="address" type="text"  name="address" class="form-control" value="{{ old('address', $user->address) }}">
+                    @error('address')
+                        <div class="bg-danger w-100 p-3 text-white m-2 rounded-3">{{ $message }}</div>
+                    @enderror
                 </div>
             </div>
 

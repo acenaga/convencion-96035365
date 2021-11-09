@@ -15,7 +15,7 @@
                                     <span>Hello I'm</span>
                                 </div>
 
-                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->name }}</h2>
+                                <h2 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.2s">{{ $user->uppercase }}</h2>
                                 <h4 class="wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">{{ $user->title_job }}</h4>
 
                                 <ul>
