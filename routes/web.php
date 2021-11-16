@@ -80,15 +80,41 @@ Route::get('portfolio', function(){
 
 });
 
-Route::resource('user', UserController::class)->except([
-    'show'
-]);
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+    Route::group(['middleware' => ['role:admin']], function() {
 
-Route::resource('skill', SkillController::class)->except([
-    'show'
-]);
+        Route::get('/dashboard', function(){
+            return view('admin.dashboard');
+
+        })->name('dashboard');
+
+        Route::resource('user', UserController::class)->except([
+            'show'
+        ]);
+
+        Route::resource('skill', SkillController::class)->except([
+            'show'
+        ]);
+
+    });
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('dashboard');
+    Route::group(['middleware' => ['role:client']], function() {
+
+        Route::get('my-portfolio', function(){
+
+            return view('my-portfolio');
+        })->name('my-portfolio');
+
+
+
+    });
+
+
+
+
+
+});
+
+
+

@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('education', 'skill')->latest()->get();
+        $users = User::with('education', 'skill', 'roles')->latest()->get();
 
         return view('admin.users.index', compact('users'));
 
