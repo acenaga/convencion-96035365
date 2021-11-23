@@ -80,6 +80,8 @@ Route::get('portfolio', function(){
 
 });
 
+Route::get('logout-user', UserController::class.'@logout_user')->name('logout-user');
+
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::group(['middleware' => ['role:admin']], function() {
 

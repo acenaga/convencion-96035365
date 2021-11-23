@@ -26,7 +26,12 @@
           <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('logout-user') }}" tabindex="-1">Logout</a>
+          </li>
         </ul>
+
+
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
